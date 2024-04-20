@@ -1,11 +1,11 @@
 <DOCTYPE HTML>
-<html>
+<html lang="en">
 <head>
-<meta>
-<meta>
-<meta>
-<title></title>
-<link>
+<meta charset="utf-8">
+<meta name="viewport"content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Oscar Ragland III">
+<title>Oscar Ragland Web Portfolio</title>
+<link rel="stylesheet" type="css/stylesheet"href="web portfolio.css">
 </head>
 <body>
 </body>
