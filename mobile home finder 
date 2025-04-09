@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mobile Home Finder</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 20px;
+    }
+    h1 {
+      font-family: 'Blackletter', serif;
+      color: #2a2a2a;
+    }
+    input, button {
+      padding: 10px;
+      margin: 5px 0;
+      width: 100%;
+      max-width: 400px;
+      font-size: 16px;
+    }
+    #results {
+      margin-top: 20px;
+    }
+    a {
+      color: #0044cc;
+    }
+  </style>
+</head>
+<body>
+  <h1>Mobile Home Finder</h1>
+  <input type="text" id="location" placeholder="Enter city (e.g., Atlanta)" />
+  <input type="number" id="price" placeholder="Max Price (e.g., 20000)" />
+  <button onclick="searchHomes()">Search Homes</button>
+
+  <div id="results"></div>
+
+  <script>
+    function searchHomes() {
+      const location = document.getElementById("location").value.toLowerCase();
+      const price = parseInt(document.getElementById("price").value);
+      const resultsBox = document.getElementById("results");
+
+      if (!location || !price) {
+        resultsBox.innerHTML = "<p style='color:red;'>Please enter both city and price.</p>";
+        return;
+      }
+
+      // Simulated example listings
+      const exampleListings = [
+        { title: "2 Bed Mobile Home - Atlanta", price: 18000, link: "https://example.com/1" },
+        { title: "Clean & Cozy Mobile Home - Atlanta", price: 19500, link: "https://example.com/2" },
+        { title: "Luxury Mobile Home (Over Budget)", price: 22000, link: "https://example.com/3" }
+      ];
+
+      // Filter based on max price
+      const filtered = exampleListings.filter(item => item.price <= price);
+
+      resultsBox.innerHTML = "<h3>Listings:</h3>";
+      if (filtered.length === 0) {
+        resultsBox.innerHTML += "<p>No listings found under your price.</p>";
+      } else {
+        filtered.forEach(listing => {
+          resultsBox.innerHTML += `
+            <p><strong>${listing.title}</strong> - $${listing.price}<br>
+            <a href="${listing.link}" target="_blank">View Listing</a></p>
+          `;
+        });
+      }
+    }
+  </script>
+</body>
+</html>
